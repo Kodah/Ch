@@ -56,3 +56,46 @@ extension Tester {
         XCTAssertFalse(challenge3(input1: "aaa", input2: "a"))
     }
 }
+
+
+//: # 4
+//: “Write your own version of the contains() method on String that ignores letter case, and without using the existing contains() method.”
+
+
+extension String {
+    func fuzzyContains(_ s: String) -> Bool {
+        guard s.count < self.count else { return false }
+        for i in 0...self.count - s.count {
+            let slice = Array(self)[i...i+s.count-1]
+            if String(slice).lowercased() == s.lowercased() { return true }
+        }
+        
+        return false
+    }
+    
+    func bookExample(_ s: String) -> Bool {
+        return self.range(of: s, options: .caseInsensitive) != nil
+    }
+}
+extension Tester {
+    func test4() {
+        XCTAssertTrue("Hello, world".fuzzyContains("Hello"), "fuzzy 1")
+        XCTAssertTrue("Hello, world".fuzzyContains("WORLD"), "fuzzy 2")
+        XCTAssertFalse("Hello, world".fuzzyContains("Goodbye"), "fuzzy 3")
+        
+        XCTAssertTrue("Hello, world".bookExample("Hello"), "fuzzy 1")
+        XCTAssertTrue("Hello, world".bookExample("WORLD"), "fuzzy 2")
+        XCTAssertFalse("Hello, world".bookExample("Goodbye"), "fuzzy 3")
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
