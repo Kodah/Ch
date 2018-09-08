@@ -90,6 +90,43 @@ extension Tester {
 }
 
 
+//: # 5
+//: “Write a function that accepts a string, and returns how many times a specific character appears, taking case into account. Tip: If you can solve this without using a for-in loop, you can consider it a Tricky challenge.”
+
+func challenge5(input1: String, input2: Character) -> Int {
+    return input1.filter { $0 == input2 }.count
+}
+
+extension Tester {
+    func test_challenge_5() {
+        XCTAssertEqual(challenge5(input1: "The rain in Spain", input2: "a"), 2)
+        XCTAssertEqual(challenge5(input1: "Mississippi", input2: "i"), 4)
+    }
+}
+
+//: # 6
+//: “Write a function that accepts a string as its input, and returns the same string just with duplicate letters removed.”
+
+
+func challenge6(input1: String) -> String {
+    
+    var unique = Set(input1)
+    
+    let s = input1.reduce("") {
+        unique.remove($1) != nil ? "\($0)\($1)" : $0
+       
+    }
+
+    return s
+}
+
+extension Tester {
+    func test_challenge_6() {
+        XCTAssertEqual(challenge6(input1: "wombat"), "wombat")
+        XCTAssertEqual(challenge6(input1: "hello"), "helo")
+        XCTAssertEqual(challenge6(input1: "Mississippi"), "Misp")
+    }
+}
 
 
 
