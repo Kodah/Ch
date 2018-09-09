@@ -129,9 +129,26 @@ extension Tester {
 }
 
 
+//: # 7
+//: “Write a function that returns a string with any consecutive spaces replaced with a single space.”
 
+func chal7(_ s: String) -> String {
+    let reg = try! NSRegularExpression.init(pattern: " {2,}", options: .caseInsensitive)
+    
+    reg.matches(in: s, options: .reportCompletion, range: NSRangeFromString(s))
+    return reg.stringByReplacingMatches(in: s,
+                                        options: .reportProgress,
+                                        range: NSString(string: s).range(of: s),
+                                        withTemplate: " ")
+}
 
-
+extension Tester {
+    func test7() {
+        XCTAssertEqual(chal7("a   b   c"), "a b c")
+        XCTAssertEqual(chal7("    a"), " a")
+        XCTAssertEqual(chal7("abc"), "abc")
+    }
+}
 
 
 
