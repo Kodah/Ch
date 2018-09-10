@@ -3,13 +3,18 @@
    version = "3.0">
    <TimelineItems>
       <LoggerValueHistoryTimelineItem
-         documentLocation = "file:///Users/tsu06/Documents/other%20repos/challenges/Challenges.playground/Pages/Strings.xcplaygroundpage#CharacterRangeLen=10&amp;CharacterRangeLoc=2390&amp;EndingColumnNumber=0&amp;EndingLineNumber=71&amp;StartingColumnNumber=0&amp;StartingLineNumber=70&amp;Timestamp=558227700.623052"
+         documentLocation = "file:///Users/tsu06/Documents/other%20repos/challenges/Challenges.playground/Pages/Strings.xcplaygroundpage#CharacterRangeLen=10&amp;CharacterRangeLoc=2390&amp;EndingColumnNumber=0&amp;EndingLineNumber=71&amp;StartingColumnNumber=0&amp;StartingLineNumber=70&amp;Timestamp=558269418.0289609"
          selectedRepresentationIndex = "0"
          shouldTrackSuperviewWidth = "NO">
       </LoggerValueHistoryTimelineItem>
       <LoggerValueHistoryTimelineItem
-         documentLocation = "file:///Users/tsu06/Documents/other%20repos/challenges/Challenges.playground/Pages/Strings.xcplaygroundpage#CharacterRangeLen=1&amp;CharacterRangeLoc=2313&amp;EndingColumnNumber=0&amp;EndingLineNumber=69&amp;StartingColumnNumber=52&amp;StartingLineNumber=68&amp;Timestamp=558227700.623225"
+         documentLocation = "file:///Users/tsu06/Documents/other%20repos/challenges/Challenges.playground/Pages/Strings.xcplaygroundpage#CharacterRangeLen=1&amp;CharacterRangeLoc=2313&amp;EndingColumnNumber=0&amp;EndingLineNumber=69&amp;StartingColumnNumber=52&amp;StartingLineNumber=68&amp;Timestamp=558269418.029112"
          selectedRepresentationIndex = "1"
+         shouldTrackSuperviewWidth = "NO">
+      </LoggerValueHistoryTimelineItem>
+      <LoggerValueHistoryTimelineItem
+         documentLocation = "file:///Users/tsu06/Documents/other%20repos/challenges/Challenges.playground/Pages/Strings.xcplaygroundpage#CharacterRangeLen=0&amp;CharacterRangeLoc=5490&amp;EndingColumnNumber=8&amp;EndingLineNumber=161&amp;StartingColumnNumber=8&amp;StartingLineNumber=161&amp;Timestamp=558269418.029224"
+         selectedRepresentationIndex = "0"
          shouldTrackSuperviewWidth = "NO">
       </LoggerValueHistoryTimelineItem>
    </TimelineItems>

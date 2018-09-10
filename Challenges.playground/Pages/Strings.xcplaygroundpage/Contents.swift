@@ -150,6 +150,100 @@ extension Tester {
     }
 }
 
+//: # 8
+//: Write a function that accepts two strings, and returns true if one string is rotation of the other, taking letter case into account. Tip: A string rotation is when you take a string, remove some letters from its end, then append them to the front. For example, “swift” rotated by two characters would be “ftswi”.
+
+func chal8(_ s1: String, _ s2: String) -> Bool {
+    guard Set(s1) == Set(s2) else { return false }
+    
+    var lastSlice = ""
+    for i in 1 ... s1.count {
+        let slice = String(Array(s1)[0..<i])
+        
+        if !s2.contains(slice) {
+            let s1Remove = s1.range(of: lastSlice)!
+            let s2Remove = s2.range(of: lastSlice)!
+            var s1c = s1
+            var s2c = s2
+            s1c.removeSubrange(s1Remove)
+            s2c.removeSubrange(s2Remove)
+            return s2c == s1c
+        }
+        lastSlice = slice
+    }
+    
+    
+    return false
+}
+
+extension Tester {
+    func test8() {
+        XCTAssertTrue(chal8("swift", "ftswi"))
+        XCTAssertTrue(chal8("abcde", "eabcd"))
+        XCTAssertTrue(chal8("abcde", "cdeab"))
+        XCTAssertFalse(chal8("abcde", "abced"))
+        XCTAssertFalse(chal8("abc", "a"))
+    }
+}
+
+//: # 9
+//: “Write a function that returns true if it is given a string that is an English pangram, ignoring letter case. Tip: A pangram is a string that contains every letter of the alphabet at least once.”
+
+func chal9(_ s: String) -> Bool {
+    let alphabet = Set("abcdefghijklmnopqrstuvwxyz")
+    let input = s.lowercased().replacingOccurrences(of: " ", with: "")
+    
+    return alphabet == Set(input)
+}
+
+extension Tester {
+    func test9() {
+        XCTAssertTrue(chal9("The quick brown fox jumps over the lazy dog"))
+        XCTAssertFalse(chal9("The quick brown fox jumped over the lazy dog"))
+    }
+}
+
+
+//: # 10
+//: “Given a string in English, return a tuple containing the number of vowels and consonants. Tip: Vowels are the letters, A, E, I, O, and U; consonants are the letters B, C, D, F, G, H, J, K, L, M, N, P, Q, R, S, T, V, W, X, Y, Z.”
+
+
+func chal10(_ s: String) -> (Int, Int) {
+
+    let input = s.replacingOccurrences(of: " ", with: "")
+    
+    let reg = try! NSRegularExpression(pattern: "[aeiou]", options: .caseInsensitive)
+    let cutString = reg.stringByReplacingMatches(in: input,
+                                 options: .reportCompletion,
+                                 range: NSString(string: input).range(of: input),
+                                 withTemplate: "")
+    let cons = cutString.count
+    let vowels = input.count - cons
+    
+    return (vowels, cons)
+}
+
+
+extension Tester {
+    func test10() {
+        XCTAssertEqual(chal10("Swift Coding Challenges").0, 6)
+        XCTAssertEqual(chal10("Swift Coding Challenges").1, 15)
+        XCTAssertEqual(chal10("Mississippi").0, 4)
+        XCTAssertEqual(chal10("Mississippi").1, 7)
+    }
+}
+
+
+//: # 11
+//: “Write a function that accepts two strings, and returns true if they are identical in length but have no more than three different letters, taking case and string order into account.”
+
+
+
+
+
+
+
+
 
 
 
