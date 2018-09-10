@@ -237,8 +237,28 @@ extension Tester {
 //: # 11
 //: “Write a function that accepts two strings, and returns true if they are identical in length but have no more than three different letters, taking case and string order into account.”
 
+func chal11(_ s1: String, _ s2: String) -> Bool {
+    guard s1.count == s2.count else { return false }
+    
+    let differences = zip(s1, s2).reduce(0) {
+         $1.0 != $1.1 ? $0+1 : $0
+    }
+    return differences <= 3
+}
 
 
+extension Tester {
+    func test11() {
+        
+        
+        XCTAssertTrue(chal11("Clamp", "Cramp"))
+        XCTAssertTrue(chal11("Clamp", "Crams"))
+        XCTAssertTrue(chal11("Clamp", "Grams"))
+        XCTAssertFalse(chal11("Clamp", "Grans"))
+        XCTAssertFalse(chal11("Clamp", "Clam"))
+        XCTAssertFalse(chal11("Clamp", "maple"))
+    }
+}
 
 
 
