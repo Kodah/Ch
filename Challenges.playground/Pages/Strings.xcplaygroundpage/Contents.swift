@@ -249,8 +249,6 @@ func chal11(_ s1: String, _ s2: String) -> Bool {
 
 extension Tester {
     func test11() {
-        
-        
         XCTAssertTrue(chal11("Clamp", "Cramp"))
         XCTAssertTrue(chal11("Clamp", "Crams"))
         XCTAssertTrue(chal11("Clamp", "Grams"))
@@ -260,10 +258,29 @@ extension Tester {
     }
 }
 
+//: # 12
+//: Write a function that accepts a string of words with a similar prefix, separated by spaces, and returns the longest substring that prefixes all words.
 
+func chal12(_ s: String) -> String {
+    
+    let words = s.split(separator: " ")
+    let shortestWord = words.min() { $0.count < $1.count }?.count
+    var index = 0
+    for i in 0 ..< shortestWord! {
+        index = i
+        let letters = words.map{ Array($0)[i] }
+        if Set(letters).count != 1 {
+            break
+        }
+    }
+    return String(s.prefix(index))
+}
 
-
-
-
+extension Tester {
+    func test12() {
+        XCTAssertEqual(chal12("swift switch swill swim"), "swi")
+        XCTAssertEqual(chal12("flip flap flop"), "fl")
+    }
+}
 
 
