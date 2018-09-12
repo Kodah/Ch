@@ -284,3 +284,36 @@ extension Tester {
 }
 
 
+//: # 13
+//: “Write a function that accepts a string as input, then returns how often each letter is repeated in a single run, taking case into account. Tip: This approach is used in a simple lossless compression technique called run-length encoding.”
+func chal13(_ s: String) -> String {
+
+    var output = ""
+    var lastLetter = ""
+    var count = 0
+    
+    for l in s {
+        let letter = String(l)
+        if letter == lastLetter || count == 0 {
+            count += 1
+        } else {
+            output += "\(lastLetter)\(count)"
+            count = 1
+        }
+        lastLetter = letter
+        
+    }
+    output += "\(lastLetter)\(count)"
+    
+    return output
+}
+
+extension Tester {
+    func test13() {
+        XCTAssertEqual(chal13("aabbcc"), "a2b2c2")
+        XCTAssertEqual(chal13("aaabaaabaaa"), "a3b1a3b1a3")
+        XCTAssertEqual(chal13("aaAAaa"), "a2A2a2")
+    }
+}
+
+
