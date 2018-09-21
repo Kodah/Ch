@@ -286,6 +286,7 @@ extension Tester {
 
 //: # 13
 //: “Write a function that accepts a string as input, then returns how often each letter is repeated in a single run, taking case into account. Tip: This approach is used in a simple lossless compression technique called run-length encoding.”
+
 func chal13(_ s: String) -> String {
 
     var output = ""
@@ -316,4 +317,20 @@ extension Tester {
     }
 }
 
+//: # 14
+//: “Write a function that prints all possible permutations of a given input string. Tip: A string permutation is any given rearrangement of its letters, for example “boamtw” is a permutation of “wombat”.”
+
+func chal14(_ s: String) -> [String] {
+    return []
+}
+
+extension Tester {
+    func test14() {
+        XCTAssertEqual(chal14("a"), ["a"])
+        XCTAssertEqual(chal14("ab"), ["ab", "ba"])
+        XCTAssertEqual(chal14("abc").sorted(), ["abc", "acb", "bac", "bca", "cab", "cba"].sorted())
+        XCTAssertEqual(chal14("combat").count, 720)
+        
+    }
+}
 
